@@ -1,22 +1,3 @@
-{
-    "filter": {
-        "$and":[
-            { "hidden":false },
-            { "type":"file" }
-        ]
-    },
-    "join": {
-        "filter": {
-            "$and":[
-                { "creator": { "$in":["yogesh.b@dataloop.ai"] } },
-                { "label": { "$in":["Eye"] } }
-            ]
-        },
-        "on": {
-            "resource":"annotations",
-            "local":"itemId",
-            "forigen":"id"
-        }
-    }
-}
-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
+# Sample for python
+Dataloop is an enterprise-grade data engine for AI/ML projects lifecycle management with unstructured data (Computer-Vision, NLP) from development to production at scale. As a knowledge automation company, Dataloop AI model learning cycle or data-loop enables to:
+https://dataloop.ai/docs
