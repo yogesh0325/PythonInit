@@ -2,8 +2,12 @@ import dtlpy as dl
 import json
 import io
 
+if dl.token_expired():
+    dl.login()
+project = dl.projects.get(project_id='7e943bad-51e3-4320-8258-169215e92af4')
+
 # Get the dataset
-dataset = dl.datasets.get(dataset_id='undefined')
+dataset = dl.datasets.get(dataset_id='DATASET_ID')
 
 # Create a io.BytesIO object from the data json
 data = {
