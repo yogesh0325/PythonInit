@@ -1,7 +1,9 @@
 import dtlpy as dl
 if dl.token_expired():
     dl.login()
-project = dl.projects.get(project_id='f1bd5cf4-5ff6-47f6-9ed0-c58f349f20aa')
+projectId = 'f1bd5cf4-5ff6-47f6-9ed0-c58f349f20aa'
+modalityType = 'preview'
+project = dl.projects.get(project_id=projectId)
 datasets = project.datasets.list()
 for dataset in datasets:
     print("Name of the dataset is ",dataset.name)
@@ -12,5 +14,5 @@ for dataset in datasets:
         if modalities:
             for modality in modalities:
                 typ = modality.get('type')
-                if typ == 'preview':
-                    print(item.name, " and the type is ", dltype)
+                if typ == modalityType:
+                    print(item.name, " and the type is ", typ)
