@@ -4,10 +4,10 @@ import io
 
 if dl.token_expired():
     dl.login()
-project = dl.projects.get(project_id='7e943bad-51e3-4320-8258-169215e92af4')
+project = dl.projects.get(project_id='5b9a9de4-00e7-41b4-a74a-746ee0a6769c')
 
 # Get the dataset
-dataset = dl.datasets.get(dataset_id='DATASET_ID')
+dataset = project.datasets.get(dataset_id='69240056616069eaed3b8757')
 
 # Create a io.BytesIO object from the data json
 data = {
@@ -19,12 +19,12 @@ data = {
   "rating1": 3,
   "rating2": 3,
   "rating3": 3,
-  "confident?": true,
+  "confident": "true",
   "confidence": 1,
   "more": "Sample text"
 }
 buffer = io.BytesIO(json.dumps(data).encode('utf-8'))
-buffer.name = '6825ef871ea4a49ab3890793-data.json'
+buffer.name = '6825ef871ea4a49ab3890793-data-yogesoh1.json'
 buffer.seek(0)
 item = dataset.items.upload(
     local_path=buffer,
@@ -32,6 +32,9 @@ item = dataset.items.upload(
         'system': {
             'shebang': {
                 'dltype': 'evaluation-studio'
+            },
+            'modalities': {
+                'type': 'preview',
             },
             'evaluation': {
                 'layoutName': '6825ef871ea4a49ab3890793'
